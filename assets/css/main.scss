@@ -68,3 +68,25 @@
 body {
   font-family: "Inter", sans-serif;
 }
+/* ==== Fix avatar crop (container + image) ==== */
+
+.author__avatar {
+  width: 180px !important;
+  height: auto !important;
+}
+
+.author__avatar a,
+.author__avatar img {
+  border-radius: 8px !important;
+}
+
+.author__avatar a {
+  display: block !important;
+  overflow: visible !important; /* 关键：不要裁剪 */
+}
+
+.author__avatar img {
+  width: 180px !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
