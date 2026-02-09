@@ -1,1 +1,60 @@
+/* ====== LOADED TEST (必须看到红框) ====== */
+body { outline: 8px solid red !important; }
+
+/* ====== 你要的布局开始 ====== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body { font-family: "Inter", sans-serif; }
+
+/* 头像（logo） */
+.author__avatar { width: 180px !important; height: auto !important; }
+.author__avatar a { display:block !important; overflow:visible !important; border-radius:10px !important; }
+.author__avatar img { width:180px !important; height:auto !important; object-fit:contain !important; border-radius:10px !important; }
+
+/* 页面更宽、更居中 */
+.initial-content,
+.page__inner-wrap,
+.archive__wrapper,
+.masthead__inner-wrap{
+  max-width: 1400px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  padding-left:40px !important;
+  padding-right:40px !important;
+}
+
+/* 桌面端：标题左、菜单右 */
+@media (min-width: 900px){
+  .greedy-nav{
+    width:100%;
+    display:flex !important;
+    align-items:center;
+    justify-content:space-between !important;
+  }
+  .greedy-nav .site-title{
+    font-size:26px !important;
+    font-weight:700 !important;
+    white-space:nowrap;
+  }
+  .greedy-nav .visible-links{
+    display:flex !important;
+    align-items:center;
+    gap:32px !important;
+  }
+  .greedy-nav .visible-links a{
+    padding:0.35rem 0 !important;
+    font-size:1.02rem !important;
+    font-weight:500 !important;
+  }
+}
+
+/* 桌面端：sidebar + 内容平铺 */
+@media (min-width:1024px){
+  .layout--single .page__inner-wrap,
+  .layout--archive .page__inner-wrap{
+    display:grid !important;
+    grid-template-columns: 320px minmax(0,1fr) !important;
+    gap:60px !important;
+  }
+}
 
