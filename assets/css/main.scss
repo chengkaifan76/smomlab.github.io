@@ -41,3 +41,34 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
+/* ==== SMOM Lab custom styling ==== */
+
+.author__avatar img {
+  border-radius: 8px !important;
+  max-width: 180px !important;
+}
+
+.site-title {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  line-height: 1.2;
+}
+
+.author__name {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  margin-top: 16px;
+}
+
+.author__bio {
+  font-size: 16px !important;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+/* Modern font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+  font-family: "Inter", sans-serif;
+}
