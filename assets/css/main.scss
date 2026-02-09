@@ -2,168 +2,160 @@
 ---
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 /*
- * This file controls what is imported from /_sass
- *
- * Note that the files are processed in the order they are imported, so they are partly
-   sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
+ * AcademicPages / Minimal Mistakes
+ * main.scss
  */
 
 @import
-    "vendor/breakpoint/breakpoint",
+  "vendor/breakpoint/breakpoint",
 
-    "themes",
-    "theme/{{ site.site_theme | default: 'default' | append: '_light' }}",
-    "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
+  "themes",
+  "theme/{{ site.site_theme | default: 'default' | append: '_light' }}",
+  "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
 
-    "include/mixins",
-    "vendor/susy/susy",
+  "include/mixins",
+  "vendor/susy/susy",
 
-    "layout/reset",
-    "layout/base",
+  "layout/reset",
+  "layout/base",
 
-    "include/utilities",
-    "layout/tables",
-    "layout/buttons",
-    "layout/notices",
-    "layout/masthead",
-    "layout/navigation",
-    "layout/footer",
-    "syntax",
+  "include/utilities",
+  "layout/tables",
+  "layout/buttons",
+  "layout/notices",
+  "layout/masthead",
+  "layout/navigation",
+  "layout/footer",
+  "syntax",
 
-    "layout/forms",
+  "layout/forms",
 
-    "layout/page",
-    "layout/archive",
-    "layout/sidebar",
-    "layout/json_cv",
+  "layout/page",
+  "layout/archive",
+  "layout/sidebar",
+  "layout/json_cv",
 
-    "vendor/font-awesome/fontawesome",
-    "vendor/font-awesome/solid",
-    "vendor/font-awesome/brands"
+  "vendor/font-awesome/fontawesome",
+  "vendor/font-awesome/solid",
+  "vendor/font-awesome/brands"
 ;
 
 /* =========================
    Global typography
 ========================= */
-body {
+html, body {
   font-family: "Inter", sans-serif;
 }
 
 /* =========================
-   Avatar (logo) rendering
+   Make the whole site wider + centered (MOST IMPORTANT)
+   These selectors are the ones that usually exist in MM
+========================= */
+.masthead__inner-wrap,
+.initial-content,
+.page,
+.archive {
+  max-width: 1400px !important;   /* 你要更像模板可试 1500/1600 */
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* generous side padding like “official website” */
+.masthead__inner-wrap,
+.initial-content {
+  padding-left: 48px !important;
+  padding-right: 48px !important;
+}
+
+/* =========================
+   Navigation: left title, right menu (robust)
+========================= */
+@media (min-width: 900px) {
+
+  /* ensure menu container can stretch */
+  .masthead__menu {
+    width: 100% !important;
+  }
+
+  /* greedy-nav as flex row */
+  nav.greedy-nav,
+  .greedy-nav {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  /* left site title */
+  .site-title,
+  .greedy-nav .site-title {
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    margin-right: 32px !important;
+  }
+
+  /* right menu list */
+  .greedy-nav .visible-links,
+  .greedy-nav ul.visible-links {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 36px !important;  /* 关键：菜单项之间的“大间距” */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* each item */
+  .greedy-nav .visible-links a,
+  .greedy-nav ul.visible-links a {
+    padding: 0.4rem 0 !important; /* 不用大 padding，靠 gap 撑开 */
+    font-size: 1.02rem !important;
+    font-weight: 500 !important;
+  }
+}
+
+/* =========================
+   Sidebar: keep default layout, just polish
+========================= */
+@media (min-width: 1024px) {
+  .sidebar {
+    width: 320px;
+  }
+}
+
+/* =========================
+   Avatar: do NOT crop + make it look premium
 ========================= */
 .author__avatar {
-  width: 180px !important;
+  width: 200px !important;
   height: auto !important;
 }
 
 .author__avatar a {
   display: block !important;
-  overflow: visible !important; /* 不裁剪 */
-  border-radius: 10px !important;
+  overflow: visible !important;
+  border-radius: 12px !important;
 }
 
 .author__avatar img {
-  width: 180px !important;
+  width: 200px !important;
   height: auto !important;
-  max-width: 180px !important;
   object-fit: contain !important;
-  border-radius: 10px !important;
+  border-radius: 12px !important;
 }
 
-/* Sidebar text */
 .author__name {
   font-size: 20px !important;
   font-weight: 700 !important;
-  margin-top: 16px;
+  margin-top: 14px !important;
 }
 
 .author__bio {
   font-size: 16px !important;
-  margin-top: 8px;
-  margin-bottom: 16px;
+  margin-top: 8px !important;
+  margin-bottom: 14px !important;
 }
-
-/* =========================
-   Layout: wider + centered
-========================= */
-.initial-content,
-.page__inner-wrap,
-.archive__wrapper {
-  max-width: 1400px !important; /* 想更宽改 1500/1600 */
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* 页面左右留白（桌面端更像“官网”） */
-.initial-content,
-.page__inner-wrap,
-.archive__wrapper {
-  padding-left: 40px !important;
-  padding-right: 40px !important;
-}
-
-/* =========================
-   Masthead / Navigation
-   Goal: left title, right menu
-========================= */
-.masthead__inner-wrap {
-  max-width: 1400px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-left: 40px !important;
-  padding-right: 40px !important;
-}
-
-/* 只在桌面端强制左右布局，避免移动端导航出问题 */
-@media (min-width: 900px) {
-  .greedy-nav {
-    width: 100%;
-    display: flex !important;
-    align-items: center;
-    justify-content: space-between !important;
-  }
-
-  /* 左侧站点标题 */
-  .greedy-nav .site-title {
-    font-size: 26px !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.2px;
-    margin-right: 28px;
-    white-space: nowrap;
-  }
-
-  /* 右侧菜单容器：用 gap 拉开距离（比 padding 更高级） */
-  .greedy-nav .visible-links {
-    display: flex !important;
-    align-items: center;
-    gap: 32px; /* 想更松就 36~44 */
-  }
-
-  /* 菜单项本身别太厚重 */
-  .greedy-nav .visible-links a {
-    padding: 0.35rem 0 !important;
-    font-size: 1.02rem;
-    font-weight: 500;
-  }
-}
-
-/* =========================
-   Sidebar + content grid (desktop)
-========================= */
-@media (min-width: 1024px) {
-  /* sidebar 宽度（仅视觉，不一定是最终计算宽度） */
-  .sidebar {
-    width: 320px;
-  }
-
-  /* 用 grid 让左侧 sidebar + 右侧内容更“平铺” */
-  .layout--single .page__inner-wrap,
-  .layout--archive .page__inner-wrap {
-    display: grid;
-    grid-template-columns: 320px minmax(0, 1fr);
-    gap: 60px; /* 想更松就 70 */
-  }
-}
-
