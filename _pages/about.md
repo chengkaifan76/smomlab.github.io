@@ -1,6 +1,6 @@
 ---
 permalink: /
-layout: splash
+layout: single
 title: "Smart Mining Operations and Monitoring Laboratory (SMOM Lab)"
 author_profile: true
 redirect_from: 
