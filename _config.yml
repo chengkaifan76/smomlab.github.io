@@ -25,10 +25,10 @@ author:
   # Biographic information
   avatar           : "profile.png"
   name             : "Smart Mining Operations and Monitoring Laboratory"
-  pronouns         : "Shaping the future of mining through intelligence, data, and sustainability."
+  description      : "Shaping the future of mining through intelligence, data, and sustainability."
   bio              : "Chengkai Fan, Ph.D.<br>Department of Mining, Metallurgical and Materials Engineering<br>Université Laval"
   location         : "Quebec City"
-  employer         : "Université Laval"
+  employer         : #"Université Laval"
   uri              : "https://chengkai-fan.fsg.ulaval.ca/en"
   email            : "chengkai.fan@gmn.ulaval.ca" 
 
