@@ -43,10 +43,36 @@
     "vendor/font-awesome/brands"
 ;
 
-.author__avatar img {
-  border-radius: 8px !important;
-  max-width: 180px !important;
+/* =========================
+   Global typography
+========================= */
+body {
+  font-family: "Inter", sans-serif;
 }
+
+/* =========================
+   Avatar (logo) rendering
+========================= */
+.author__avatar {
+  width: 180px !important;
+  height: auto !important;
+}
+
+.author__avatar a {
+  display: block !important;
+  overflow: visible !important; /* 不裁剪 */
+  border-radius: 10px !important;
+}
+
+.author__avatar img {
+  width: 180px !important;
+  height: auto !important;
+  max-width: 180px !important;
+  object-fit: contain !important;
+  border-radius: 10px !important;
+}
+
+/* Sidebar text */
 .author__name {
   font-size: 20px !important;
   font-weight: 700 !important;
@@ -58,77 +84,85 @@
   margin-top: 8px;
   margin-bottom: 16px;
 }
-body {
-  font-family: "Inter", sans-serif;
-}
-/* ==== Fix avatar crop (container + image) ==== */
 
-.author__avatar {
-  width: 180px !important;
-  height: auto !important;
-}
-
-.author__avatar a,
-.author__avatar img {
-  border-radius: 8px !important;
-}
-
-.author__avatar a {
-  display: block !important;
-  overflow: visible !important; /* 关键：不要裁剪 */
-}
-
-.author__avatar img {
-  width: 180px !important;
-  height: auto !important;
-  object-fit: contain !important;
-}
-/* ===== Layout: make site wider ===== */
-
-/* ===== Layout: make site wider (more reliable) ===== */
+/* =========================
+   Layout: wider + centered
+========================= */
 .initial-content,
 .page__inner-wrap,
-.archive__wrapper,
+.archive__wrapper {
+  max-width: 1400px !important; /* 想更宽改 1500/1600 */
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* 页面左右留白（桌面端更像“官网”） */
+.initial-content,
+.page__inner-wrap,
+.archive__wrapper {
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
+
+/* =========================
+   Masthead / Navigation
+   Goal: left title, right menu
+========================= */
 .masthead__inner-wrap {
-  padding-left: 32px !important;
-  padding-right: 32px !important;
+  max-width: 1400px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
 }
 
-/* 让导航条更像“左右分布开”的官网感 */
-.greedy-nav {
-  width: 100%;
-}
-/* 左侧标题 */
-.greedy-nav .site-title {
-  font-size: 28px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.2px;
-}
+/* 只在桌面端强制左右布局，避免移动端导航出问题 */
+@media (min-width: 900px) {
+  .greedy-nav {
+    width: 100%;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between !important;
+  }
 
-/* 右侧菜单整体的间距（关键） */
-.greedy-nav .visible-links {
-  display: flex;
-  align-items: center;
-  gap: 26px;              /* 你想更松就 30~34 */
-}
+  /* 左侧站点标题 */
+  .greedy-nav .site-title {
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.2px;
+    margin-right: 28px;
+    white-space: nowrap;
+  }
 
-/* 每个菜单项微调（不要太挤） */
-.greedy-nav a {
-  padding: 0.6rem 0.2rem; /* 不要用太大左右 padding，交给 gap */
-  font-size: 1.02rem;
-  font-weight: 500;
-}
+  /* 右侧菜单容器：用 gap 拉开距离（比 padding 更高级） */
+  .greedy-nav .visible-links {
+    display: flex !important;
+    align-items: center;
+    gap: 32px; /* 想更松就 36~44 */
+  }
 
-/* ===== Sidebar proportion ===== */
-.sidebar {
-  width: 300px;   /* 你可以试 260~320 */
-}
-@media (min-width: 1024px) {
-  .layout--single .page__inner-wrap,
-  .layout--archive .page__inner-wrap {
-    display: grid;
-    grid-template-columns: 300px minmax(0, 1fr);
-    gap: 48px;
+  /* 菜单项本身别太厚重 */
+  .greedy-nav .visible-links a {
+    padding: 0.35rem 0 !important;
+    font-size: 1.02rem;
+    font-weight: 500;
   }
 }
 
+/* =========================
+   Sidebar + content grid (desktop)
+========================= */
+@media (min-width: 1024px) {
+  /* sidebar 宽度（仅视觉，不一定是最终计算宽度） */
+  .sidebar {
+    width: 320px;
+  }
+
+  /* 用 grid 让左侧 sidebar + 右侧内容更“平铺” */
+  .layout--single .page__inner-wrap,
+  .layout--archive .page__inner-wrap {
+    display: grid;
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: 60px; /* 想更松就 70 */
+  }
+}
