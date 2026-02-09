@@ -90,3 +90,61 @@ body {
   height: auto !important;
   object-fit: contain !important;
 }
+/* ===== Layout: make site wider ===== */
+
+/* 主内容最大宽度（默认偏窄），建议 1400~1600 */
+.page,
+.archive,
+.home,
+.layout--single .page__inner-wrap,
+.layout--archive .page__inner-wrap {
+  max-width: 1400px;
+}
+
+/* 让内容区域在大屏居中 */
+.page__inner-wrap,
+.archive__wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+/* ===== Masthead / Navigation spacing ===== */
+
+/* 顶部导航整体左右留白更大（更像你对比那种） */
+.masthead__inner-wrap {
+  max-width: 1400px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+/* 菜单项之间的间距 */
+.greedy-nav a {
+  padding: 0.75rem 1.15rem;  /* 上下 + 左右 */
+  font-size: 1.02rem;        /* 轻微放大 */
+  font-weight: 500;
+}
+
+/* 站点标题（左上角 SMOM Lab）更“像品牌” */
+.greedy-nav .site-title {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+/* 让导航占满宽度，菜单在一行上更舒展 */
+.masthead__menu {
+  width: 100%;
+}
+
+.greedy-nav {
+  width: 100%;
+}
+/* ===== Sidebar proportion ===== */
+.sidebar {
+  width: 280px;   /* 你可以试 260~320 */
+}
+
+@media (min-width: 1024px) {
+  .page__inner-wrap {
+    display: grid;
+    grid-template-columns: 300px 1fr; /* 左侧固定，右侧自适应 */
+    gap: 48px;                         /* 左右间距更高级 */
+  }
+}
