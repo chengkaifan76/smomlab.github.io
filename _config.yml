@@ -29,8 +29,8 @@ author:
   bio              : "Department of Mining, Metallurgical and Materials Engineering"
   location         : "Quebec City"
   employer         : "Université Laval"
-  uri              : # URL
-  email            : "none@example.org" 
+  uri              : "https://chengkai-fan.fsg.ulaval.ca/en"
+  email            : "chengkai.fan@gmn.ulaval.ca" 
 
   # Academic websites
   academia         : # URL
