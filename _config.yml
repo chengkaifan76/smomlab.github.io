@@ -23,7 +23,7 @@ repository               : "chengkaifan76/smomlab.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "/images/vertical.png"
+  avatar           : "{{ site.baseurl }}/images/vertical.png"
   name             : "Smart Mining Operations and Monitoring Laboratory"
   description      : "Shaping the future of mining through intelligence, data, and sustainability."
   bio              : "Chengkai Fan, Ph.D.<br>Department of Mining, Metallurgical and Materials Engineering<br>Université Laval"
