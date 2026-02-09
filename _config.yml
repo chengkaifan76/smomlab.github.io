@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-site_theme               : "sunrise" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
+site_theme               : "mint" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "SMOM Lab"
 title_separator          : "-"
 name                     : &name "Smart Mining Operations and Monitoring Laboratory"
@@ -24,7 +24,7 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Chengkai Fan"
+  name             : "Smart Mining Operations and Monitoring Laboratory"
   pronouns         : # example: "she/her"  
   bio              : "Department of Mining, Metallurgical and Materials Engineering"
   location         : "Quebec City"
